@@ -22,3 +22,13 @@ services:
         environment: 
             - CI=true
         command: npm test
+
+    prod:
+        container_name: lazyload-app-prod
+        build:
+            context: .
+            dockerfile: production.Dockerfile
+        ports:
+            - '3000:80'
+        environment:
+            - NODE_ENV=production
